@@ -51,4 +51,14 @@ public class Country {
     public void addNeighbor(Country neighbor) {
         this.neighbors.add(neighbor);
     }
+
+    @Override
+    public String toString() {
+        return "Id: " + this.getId() + "\nNeighbors: " + this.getNeighbors().forEach(neighbor -> this.neighborToString(neighbor));
+
+    }
+
+    public String neighborToString(Country neighbor) {
+        return "\tId: " + neighbor.getId();
+    }
 }
