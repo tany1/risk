@@ -1,15 +1,35 @@
 import java.util.List;
 
 public class Country {
-    private int id;
+    private Integer id;
     private List<Country> neighbors;
+
+    /**
+     * Constructor.
+     *
+     * @param id
+     */
+    public Country(Integer id) {
+        this.id = id;
+    }
+    
+    /**
+     * Constructor.
+     *
+     * @param id
+     * @param neighbors
+     */
+    public Country(Integer id, List<Country> neighbors) {
+        this.id = id;
+        this.neighbors= neighbors;
+    }
     
     /**
      * Return country's id.
      *
      * @return int
      */
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
 
