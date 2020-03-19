@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Country {
@@ -11,6 +13,7 @@ public class Country {
      */
     public Country(Integer id) {
         this.id = id;
+        this.neighbors = new ArrayList<Country>();
     }
     
     /**
@@ -53,12 +56,29 @@ public class Country {
     }
 
     @Override
+    /**
+     * Implement to string.
+     *
+     * @return String
+     */
     public String toString() {
-        return "Id: " + this.getId() + "\nNeighbors: " + this.getNeighbors().forEach(neighbor -> this.neighborToString(neighbor));
-
+        String string = "Id: " + this.getId() + "\nNeighbors:\n";
+        Iterator<Country> iterator = this.neighbors.iterator();
+        
+        while (iterator.hasNext()) {
+            string += this.neighborToString(iterator.next());
+        }
+        
+        return string;
     }
 
+    /**
+     * Stringify neighbor.
+     *
+     * @param neighbor
+     * @return String
+     */
     public String neighborToString(Country neighbor) {
-        return "\tId: " + neighbor.getId();
+        return "\tId: " + neighbor.getId() + "\n";
     }
 }
